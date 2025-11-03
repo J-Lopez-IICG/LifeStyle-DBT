@@ -112,8 +112,8 @@ Para configurar y ejecutar este proyecto dbt, siga estos pasos:
 
 1.  **Clonar el repositorio:**
     ```bash
-    git clone https://github.com/J-Lopez-IICG/lifestyledbt.git
-    cd lifestyledbt
+    https://github.com/J-Lopez-IICG/LifeStyle-DBT.git
+    cd lifestyle-dbt
     ```
 
 2.  **Instalar paquetes dbt:**
