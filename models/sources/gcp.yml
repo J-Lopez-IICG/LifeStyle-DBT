@@ -1,5 +1,5 @@
 version: 2
-
+#gcloud auth application-default login
 sources:
   - name: GCP Dataset                  # Nombre para esta fuente de datos
     database: fluid-mind-476121-g8     # ID del proyecto en GCP

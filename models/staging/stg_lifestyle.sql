@@ -63,7 +63,9 @@ WITH source_data AS (
         lean_mass_kg AS Masa_Magra_kg,
         expected_burn AS Quema_Esperada,
         `Burns Calories _per 30 min__bc` AS Quema_Calorias_por_30_min_bc, 
-        Burns_Calories_Bin AS Quema_Calorias_Bin
+        Burns_Calories_Bin AS Quema_Calorias_Bin,
+
+        CURRENT_TIMESTAMP() AS loaded_at 
     FROM 
         {{ source('GCP Dataset', 'full_data') }}
 )

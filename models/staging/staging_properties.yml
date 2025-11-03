@@ -1,5 +1,5 @@
 version: 2
-#dbt test -s path:models/staging
+#dbt test --select stg_lifestyle
 models:
   - name: stg_lifestyle
     description: "Modelo que limpia y renombra los datos de la fuente full_data, preparando la información de salud y fitness."
@@ -42,7 +42,7 @@ models:
         tests:
           - not_null
           - accepted_values:
-              arguments: # <-- CORRECIÓN
+              arguments: 
                 values: ['Strength', 'Yoga', 'HIIT', 'Cardio']
       - name: Porcentaje_Grasa
         tests:
@@ -84,13 +84,13 @@ models:
         tests:
           - not_null
           - accepted_values:
-              arguments: # <-- CORRECIÓN
+              arguments: 
                 values: ['Lunch', 'Dinner', 'Breakfast', 'Snack']
       - name: Tipo_Dieta
         tests:
           - not_null
           - accepted_values:
-              arguments: # <-- CORRECIÓN
+              arguments: 
                 values: ['Paleo', 'Low-Carb', 'Vegetarian', 'Keto', 'Vegan', 'Balanced']
       - name: Azucar_Gramos
         tests:
@@ -182,3 +182,10 @@ models:
       - name: Quema_Calorias_Bin
         tests:
           - not_null
+      - name: loaded_at
+        description: "La marca de tiempo (timestamp) de cuándo se ejecutó el modelo de staging y se procesaron los datos."
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              arguments:
+                column_type: timestamp

@@ -1,5 +1,5 @@
 version: 2
-#dbt test -s path:models/marts
+#dbt test --select marts_properties
 models:
   # ====================================================================
   # 1. TABLA DE HECHOS (FACT TABLE)
